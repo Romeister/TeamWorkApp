@@ -1,0 +1,389 @@
+body {
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-top: 50px;
+    width: 1200px; /* Set the width to match your desired window size */
+    height: 600px;
+}
+
+.sidebar {
+    width: 125px; /* Half the width */
+    background-color: #5283E9;
+    border-color: #5283E9;
+    padding: 20px;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    flex: 1;
+    background-color: #DAECF9;
+    border-radius: 0px 18px 18px 0px ;
+    display: flex;
+    flex-direction: row;
+}
+
+.task-section {
+    flex: 1;
+    margin: 10px;
+    padding: 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-section-content {
+    flex: 1;
+    border: 2px solid #5283E9;
+    margin: 1px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: calc(100% - 60px); /* Adjust as needed to leave space for the title */
+    align-items: center; /* Center the cards horizontally */
+    justify-content: center; /* Center the cards vertically */
+    display: flex;
+    flex-wrap: wrap;
+    scrollbar-width: thin; /* Hide the default scrollbar on Firefox */
+}
+
+
+.task-section-content::-webkit-scrollbar {
+    width: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.task-section-content:hover::-webkit-scrollbar {
+    opacity: 1;
+}
+
+/* Hide the scrollbar after removing hover */
+.task-section-content:not(:hover)::-webkit-scrollbar {
+    opacity: 0;
+    transition-delay: 1s;
+}
+
+.task-section-content::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: solid #ccc;
+    transition: background-color 0.5s ease-in-out; /* Add transition to color change */
+}
+
+.task-section-content:hover::-webkit-scrollbar-thumb {
+    background-color: #5283E9;
+}
+
+/* Reset scrollbar opacity when not hovering over .task-section-content */
+.task-section-content:not(:hover)::-webkit-scrollbar {
+    opacity: 0;
+}
+
+.task-section-title {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.task-section h3 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+/* Additional styling for the buttons can be added here */
+.btn-group-sm {
+    margin: 5px 0;
+}
+
+.logout-btn {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.logout-btn button {
+    margin-top: 10px;
+}
+
+/* Sample task card styling */
+.task-card {
+    background-color: #f5fcff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    height: 250px; /* Increased height to accommodate footer */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.task-card:hover{
+    box-shadow: 0px 0px 10px rgba(0, 128, 0, 0.5); /* Green box-shadow on hover */
+    cursor: pointer;
+}
+
+.task-card .card-text {
+    flex-grow: 1;
+    overflow: hidden; /* Hide overflowing content */
+    word-wrap: break-word; /* Wrap long words */
+    text-overflow: ellipsis; /* Show ellipsis (...) for clipped text */
+}
+
+.task-card .card-footer {
+    height: 50px; /* Increased height for the footer */
+    background-color: #f5fcff;
+    border-top: 2px solid #ccc;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for member icons */
+.task-card .card-footer .member-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #008000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+
+
+/* Styling for Create Task Button */
+.create-task-button {
+    background-color: #f5fcff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+    width: 200px;
+    height: 250px; /* Increased height to accommodate footer */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.create-task-button:hover {
+    box-shadow: 0px 0px 10px rgba(0, 128, 0, 0.5); /* Green box-shadow on hover */
+}
+
+.user-section-content{
+        flex: 1;
+        border: 2px solid #5283E9;
+        margin: 30px 30px 50px 30px;
+        padding: 5px;
+        border-radius: 10px;
+        border-color: transparent;
+        overflow-y: auto;
+        height: calc(100% - 60px); /* Adjust as needed to leave space for the title */
+        align-items: center; /* Center the cards horizontally */
+        justify-content: center; /* Center the cards vertically */
+        display: flex;
+        flex-wrap: wrap;
+        scrollbar-width: thin; /* Hide the default scrollbar on Firefox */
+}
+
+.user-card{
+        background-color: #f5fcff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px;
+        width: 200px;
+        height: 250px; /* Increased height to accommodate footer */
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor:pointer;
+        transition: box-shadow 0.5s;
+}
+
+.user-card-create{
+        background-color: #f5fcff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px;
+        width: 200px;
+        height: 250px; /* Increased height to accommodate footer */
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor:pointer;
+        transition: box-shadow 0.3s;
+}
+
+.user-card-create:hover {
+    box-shadow: 0px 0px 10px rgba(0, 128, 0, 0.5); /* Green box-shadow on hover */
+}
+
+.user-card .card-footer {
+    height: 50px; /* Increased height for the footer */
+    width: 178.4px;
+    background-color: #f5fcff;
+    border-top: 2px solid #ccc;
+    font-size: 20px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+}
+
+.user-card  .member-icon{
+    width: 60px;
+    height: 60px;
+    background-color: #008000; /* Blue background color */
+    color: #fff; /* White text color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+
+
+.user-card .card-text {
+    height:70px;
+    word-wrap: break-word; /* Wrap long words */
+    font-size: 20px;
+    text-align:center;
+
+}
+
+.user-card:hover {
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5); /* Red box-shadow on hover */
+    }
+}
+
+.create-user-button {
+    background-color: #f5fcff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+    width: 200px;
+    height: 250px; /* Increased height to accommodate footer */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    cursor: pointer;
+    transition: box-shadow 0.3s; /* Transition only for box-shadow property */
+}
+
+.create-user-button:focus {
+    outline: none; /* Remove focus outline for keyboard focus */
+}
+
+.create-user-button:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-user-button-btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.create-user-button-icon {
+    font-size: 48px;
+    color: #ccc;
+}
+
+.create-task-button-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure the button covers the whole card width */
+    height: 100%; /* Ensure the button covers the whole card height */
+}
+
+.create-task-button-icon {
+    font-size: 48px;
+    color: #ccc;
+}
+
+.modal-content{
+    background-color: #f5fcff;
+}
+
+
+
+.modal-overlay {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for desired opacity */
+    backdrop-filter: blur(3px); /* Adjust the blur intensity as needed */
+    z-index: 999; /* Ensure the overlay is on top of everything else */
+    display: none; /* Hide the overlay by default */
+}
+
+
+/* Center the modal on the screen */
+.modal-dialog {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    width: 500px; /* Adjust the width as needed */
+    z-index: 11; /* Place it above the overlay */
+}
+
+
+.btn-info{
+    background-color: #5bc0de !important;
+}
+/* Styles for the custom confirmation dialog */
+#confirmationDialog {
+    display: none;
+}
+
+.btn{
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; !important;
+}

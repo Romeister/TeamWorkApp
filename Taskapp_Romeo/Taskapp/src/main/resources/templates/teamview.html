@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Thymeleaf link for Bootstrap CSS -->
+<!--  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />-->
+  <link th:rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="shortcut icon" href="#" />
+  <title>TeamWork</title>
+</head>
+
+<body>
+<div class="app-container">
+  <div class="sidebar">
+    <!-- Sidebar content -->
+    <a href="/taskview" class="btn btn-info btn-block">Task View</a>
+    <a href="/teamview" class="btn btn-info btn-block">Team View</a>
+    <a href="/LOGS" class="btn btn-info btn-block">Logs View</a>
+    <div class="logout-btn">
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="user-section-content">
+      <div id="memberCard1" >
+        <!-- User data  -->
+      </div>
+
+      <div  id="memberCard2" >
+        <!-- User data  -->
+      </div>
+
+      <div  id="memberCard3" >
+        <!-- User data  -->
+      </div>
+
+      <div  id="memberCard4" >
+        <!-- User data  -->
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div id="createUserModalOverlay" class="modal-overlay"></div>
+<div id="createUserModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Create Member</h5>
+        <button type="button" class="close" data-dismiss="modal" id="buttonX" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" class="form-control" id="memberFullName" placeholder="Enter Member Full Name">
+        </div>
+
+        <div class="form-group">
+          <label>User Icon</label>
+          <input type="text" class="form-control" id="memberIcon" placeholder="Enter Member Icon">
+
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Member Role</label>
+          <input type="text" class="form-control" id="memberRole" placeholder="Enter Member Role">
+        </div>
+
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" id="memberAppName" placeholder="Enter Member App Username">
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" id="memberPassword" placeholder="Enter Member Password">
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelButton">Cancel</button>
+        <button type="button" class="btn btn-primary" id="createUserBtn">Create User</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <div id="deleteUserModalOverlay" class="modal-overlay"></div>
+  <div id="deleteUserModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Delete User</h5>
+          <button type="button" class="close" data-dismiss="modal" id="deleteButtonX" aria-label="Close" onclick="closeDeleteUserModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>Are you sure you want to delete this user?</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id=confirmDeleteButton onclick="deleteUser()">Delete User</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelDeleteButton" onclick="closeDeleteUserModal()">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <script src="/js/teamscript.js"></script>
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+
+</body>
+
+</html>
+
